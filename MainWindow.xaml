@@ -1,0 +1,94 @@
+﻿<Window x:Class="PKA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Public Key Algorithm" Height="450" Width="600">
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <!-- 顶部标题栏 -->
+            <Grid>
+                <!-- 标题和Logo -->
+                <StatusBar VerticalAlignment="Top" Margin="10">
+                    <StatusBarItem>
+                        <Image Source="/Assets/Logo.jpg" Width="30" Height="30" Margin="0,0,20,0" />
+                    </StatusBarItem>
+                    <StatusBarItem>
+                        <TextBlock Text="Public Key Generator" FontSize="18" VerticalAlignment="Center" />
+                    </StatusBarItem>
+                    <StatusBarItem HorizontalAlignment="Right">
+                        <TextBlock Text="--by xxy 2020213673" FontSize="12" VerticalAlignment="Bottom" />
+                    </StatusBarItem>
+                </StatusBar>
+            </Grid>
+
+            <!-- 主要内容区域 -->
+            <Grid Margin="15">
+                <StackPanel Orientation="Vertical">
+
+                    <Grid>
+                        <!-- 算法选择 -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
+                            <TextBlock Text="Select Algorithm:" Margin="0,0,10,0" VerticalAlignment="Center" />
+                            <ComboBox x:Name="AlgorithmComboBox" Width="150" SelectedIndex="0">
+                                <ComboBoxItem Content="RSA" />
+                                <ComboBoxItem Content="ECC" />
+                                <ComboBoxItem Content="ElGamal" />
+                                <ComboBoxItem Content="Rabin" />
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid>
+                        <!-- 参数设置 -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
+                            <!-- 根据算法选择显示相应的参数设置控件 -->
+                            <!-- RSA算法 -->
+                            <StackPanel x:Name="RsaParametersPanel" Orientation="Horizontal" Margin="0,0,0,5">
+                                <TextBlock Text="Key Length:" Margin="0,0,10,0" VerticalAlignment="Center" />
+                                <ComboBox x:Name="KeyLengthComboBox" Width="150" SelectedIndex="0">
+                                    <ComboBoxItem Content="1024" />
+                                    <ComboBoxItem Content="2048" />
+                                    <ComboBoxItem Content="4096" />
+                                </ComboBox>
+                            </StackPanel>
+
+                            <!--<StackPanel x:Name="eccParametersPanel" Orientation="Horizontal" Margin="0,0,0,5">
+                                <TextBlock Text="Key Length:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                <ComboBox Width="150" SelectedIndex="0">
+                                    <ComboBoxItem Content="1024"/>
+                                    <ComboBoxItem Content="2048"/>
+                                    <ComboBoxItem Content="4096"/>
+                                </ComboBox>
+                            </StackPanel>-->
+
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid>
+                        <!-- 公钥生成按钮 -->
+                        <Button Content="Generate Public Key" Width="150" HorizontalAlignment="Center" />
+                    </Grid>
+
+                    <Grid>
+                        <!-- 公钥展示区域 -->
+                        <StackPanel Margin="0,20,0,0">
+                            <TextBlock Text="Public Key:" FontWeight="Bold" />
+                            <TextBox Width="400" Height="200" IsReadOnly="True" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <!-- 底部状态栏 -->
+        <Grid>
+            <StatusBar VerticalAlignment="Bottom" Margin="10">
+                <StatusBarItem>
+                    <TextBlock Text="Status: Ready" />
+                </StatusBarItem>
+                <StatusBarItem HorizontalAlignment="Right">
+                    <TextBlock Text="Version: 1.0" />
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>
