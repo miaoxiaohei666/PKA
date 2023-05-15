@@ -49,6 +49,13 @@
                                     <ComboBoxItem Content="2048" />
                                     <ComboBoxItem Content="4096" />
                                 </ComboBox>
+                                <TextBlock Text="Iterations times:" Margin="10,0,10,0" VerticalAlignment="Center" />
+                                <ComboBox x:Name="IterationsComboBox" Width="150" SelectedIndex="1">
+                                    <ComboBoxItem Content="10" />
+                                    <ComboBoxItem Content="20" />
+                                    <ComboBoxItem Content="30" />
+                                    <ComboBoxItem Content="40" />
+                                </ComboBox>
                             </StackPanel>
 
                             <!--<StackPanel x:Name="eccParametersPanel" Orientation="Horizontal" Margin="0,0,0,5">
@@ -65,14 +72,16 @@
 
                     <Grid>
                         <!-- 公钥生成按钮 -->
-                        <Button Content="Generate Public Key" Width="150" HorizontalAlignment="Center" />
+                        <Button Click="GeneratePublicKey_Click" Content="Generate Key" Width="150" HorizontalAlignment="Center" />
                     </Grid>
 
-                    <Grid>
+                    <Grid VerticalAlignment="Stretch">
                         <!-- 公钥展示区域 -->
                         <StackPanel Margin="0,20,0,0">
-                            <TextBlock Text="Public Key:" FontWeight="Bold" />
-                            <TextBox Width="400" Height="200" IsReadOnly="True" />
+                            <TextBlock Text="OutPut:" FontWeight="Bold" />
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <TextBox Text="{Binding LongText}" TextWrapping="Wrap" x:Name="OutputBox" Height="160" IsReadOnly="True" Margin="30,10,30,0"/>
+                            </ScrollViewer>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -86,7 +95,7 @@
                     <TextBlock Text="Status: Ready" />
                 </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right">
-                    <TextBlock Text="Version: 1.0" />
+                    <TextBlock Text="Version: 0.1" />
                 </StatusBarItem>
             </StatusBar>
         </Grid>
