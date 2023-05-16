@@ -6,6 +6,7 @@ namespace PKA.PAKCore
 {
     public class EccKey
     {
+        private int _keyLength;
         private ECDsa _eccAlgorithm;
         private BigInteger _publicKey;
         private BigInteger _privateKey;
@@ -13,12 +14,25 @@ namespace PKA.PAKCore
         public EccKey(int keyLength)
         {
             _eccAlgorithm = ECDsa.Create(); // 创建 ECC 算法实例
-            _eccAlgorithm.KeySize = keyLength;
+            _keyLength = keyLength;
         }
 
         public void GenerateEccKey()
         {
-            _eccAlgorithm.GenerateKey(ECCurve.NamedCurves.nistP256); // 选择椭圆曲线参数
+            switch (_keyLength)
+            {
+                case 256:
+                    _eccAlgorithm.GenerateKey(ECCurve.NamedCurves.nistP256); // 选择椭圆曲线参数
+                    break;
+                case 384:
+                    _eccAlgorithm.GenerateKey(ECCurve.NamedCurves.nistP384); // 选择椭圆曲线参数
+                    break;
+                case 521:
+                    _eccAlgorithm.GenerateKey(ECCurve.NamedCurves.nistP521); // 选择椭圆曲线参数
+                    break;
+                
+            }
+            
 
             // 获取生成的公钥和私钥
             var publicKey = _eccAlgorithm.ExportSubjectPublicKeyInfo();
@@ -45,6 +59,12 @@ namespace PKA.PAKCore
         {
             get => _privateKey;
             set => _privateKey = value;
+        }
+        
+        public int KeyLength
+        {
+            get => _keyLength;
+            set => _keyLength = value;
         }
     }
 }

@@ -62,9 +62,9 @@
                             <StackPanel x:Name="EccParametersPanel" Visibility="Collapsed" Orientation="Horizontal" Margin="0,0,0,5">
                                 <TextBlock Text="Key Length:" Margin="0,0,10,0" VerticalAlignment="Center"/>
                                 <ComboBox x:Name="EccKeyLengthComboBox" Width="150" SelectedIndex="0">
-                                    <ComboBoxItem Content="1024"/>
-                                    <ComboBoxItem Content="2048"/>
-                                    <ComboBoxItem Content="4096"/>
+                                    <ComboBoxItem Content="256"/>
+                                    <ComboBoxItem Content="384"/>
+                                    <ComboBoxItem Content="521"/>
                                 </ComboBox>
                             </StackPanel>
                             

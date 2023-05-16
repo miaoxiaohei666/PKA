@@ -46,9 +46,9 @@ namespace PKA
                     var eccKeyLength = int.Parse((EccKeyLengthComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty);
                     var eccKey = new EccKey(eccKeyLength);
                     eccKey.GenerateEccKey();
-                    output = "KeyLenth:\n" + eccKey.EccAlgorithm.KeySize.ToString() + "\n";
-                    output = "PrivateKey:\n" + eccKey.PrivateKey.ToString() + "\n";
-                    output = "PublicKey:\n" + eccKey.PublicKey.ToString() + "\n";
+                    output = "KeyLenth:\n" + eccKey.KeyLength.ToString() + "\n";
+                    output += "PrivateKey:\n" + eccKey.PrivateKey.ToString() + "\n";
+                    output += "PublicKey:\n" + eccKey.PublicKey.ToString() + "\n";
                     OutputBox.Text = output;
                     break;
                 case "ElGamal":
