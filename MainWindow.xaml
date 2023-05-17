@@ -116,7 +116,7 @@
                     <TextBlock Text="Status: Ready" />
                 </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right">
-                    <TextBlock Text="Version: 0.1" />
+                    <TextBlock Text="Version: 1.0" />
                 </StatusBarItem>
             </StatusBar>
         </Grid>
