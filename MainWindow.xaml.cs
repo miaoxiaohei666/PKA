@@ -46,18 +46,32 @@ namespace PKA
                     var eccKeyLength = int.Parse((EccKeyLengthComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty);
                     var eccKey = new EccKey(eccKeyLength);
                     eccKey.GenerateEccKey();
-                    output = "KeyLenth:\n" + eccKey.KeyLength.ToString() + "\n";
+                    output = "KeyLength:\n" + eccKey.KeyLength.ToString() + "\n";
                     output += "PrivateKey:\n" + eccKey.PrivateKey.ToString() + "\n";
                     output += "PublicKey:\n" + eccKey.PublicKey.ToString() + "\n";
                     OutputBox.Text = output;
                     break;
                 case "ElGamal":
                     // 执行ElGamal算法的公钥生成逻辑
-
+                    var elGamalKeyLengthComboBox = int.Parse((ElGamalKeyLengthComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty);
+                    var elGamalKey = new ElGamalKey(elGamalKeyLengthComboBox);
+                    elGamalKey.GenerateElGamalKey();
+                    output = "KeyLength:\n" + elGamalKey.KeyLength.ToString() + "\n";
+                    output += "PublicKey.Alpha:\n" + elGamalKey.PublicKey.Alpha.ToString() + "\n";
+                    output += "PublicKey.Y:\n" + elGamalKey.PublicKey.Y.ToString() + "\n";
+                    output += "PublicKey.P:\n" + elGamalKey.PublicKey.P.ToString() + "\n";
+                    output += "PublicKey.PrivateKey:\n" + elGamalKey.PrivateKey.ToString() + "\n";
+                    OutputBox.Text = output;
                     break;
                 case "Rabin":
                     // 执行Rabin算法的公钥生成逻辑
-
+                    var rabinKeyLength = int.Parse((RabinKeyLengthComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty);
+                    var rabinKey = new RabinKey(rabinKeyLength);
+                    rabinKey.GenerateRabinKey();
+                    output = "KeyLength:\n" + rabinKey.KeyLength.ToString() + "\n";
+                    output += "PublicKey:\n" + rabinKey.PublicKey.ToString() + "\n";
+                    output += "E:\n" + rabinKey.E.ToString() + "\n";
+                    OutputBox.Text = output;
                     break;
                 default:
                     // 默认情况下不执行任何操作

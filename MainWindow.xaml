@@ -71,20 +71,20 @@
                             <!-- ElGamal算法 -->
                             <StackPanel x:Name="ElGamalParametersPanel" Visibility="Collapsed" Orientation="Horizontal" Margin="0,0,0,5">
                                 <TextBlock Text="Key Length:" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                <ComboBox Width="150" SelectedIndex="0">
-                                    <ComboBoxItem Content="1024"/>
-                                    <ComboBoxItem Content="2048"/>
-                                    <ComboBoxItem Content="4096"/>
+                                <ComboBox x:Name="ElGamalKeyLengthComboBox" Width="150" SelectedIndex="0">
+                                    <ComboBoxItem Content="16"/>
+                                    <ComboBoxItem Content="32"/>
+                                    <ComboBoxItem Content="64"/>
                                 </ComboBox>
                             </StackPanel>
                             
                             <!-- Rabin算法 -->
                             <StackPanel x:Name="RabinParametersPanel" Visibility="Collapsed" Orientation="Horizontal" Margin="0,0,0,5">
                                 <TextBlock Text="Key Length:" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                <ComboBox Width="150" SelectedIndex="0">
+                                <ComboBox x:Name="RabinKeyLengthComboBox" Width="150" SelectedIndex="0">
+                                    <ComboBoxItem Content="512"/>
                                     <ComboBoxItem Content="1024"/>
                                     <ComboBoxItem Content="2048"/>
-                                    <ComboBoxItem Content="4096"/>
                                 </ComboBox>
                             </StackPanel>
 
